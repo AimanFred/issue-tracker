@@ -11,8 +11,8 @@ export default function Home() {
       </Head>
       <div>
         <h1 className={styles.title}>Dashboard</h1>
-        <Link href="/create">
-          <a className={styles.btn}>Add New Issue</a>
+        <Link href="/issues">
+          <a className={styles.btn}>See all issues</a>
         </Link>
       </div>
     </>
