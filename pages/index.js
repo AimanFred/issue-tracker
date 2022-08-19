@@ -8,12 +8,10 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div>
-      <Navbar />
-      <h1>Dashboard</h1>
+      <h1 className={styles.title}>Dashboard</h1>
       <Link href="/create">
-        <a>Add New Issue</a>
+        <a className={styles.btn}>Add New Issue</a>
       </Link>
-      <Footer />
     </div>
   )
 }
