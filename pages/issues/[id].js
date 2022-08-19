@@ -1,5 +1,5 @@
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:8000/issues");
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
   const data = await res.json();
 
   const paths = data.map(issue => {
@@ -16,7 +16,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const res = await fetch("http://localhost:8000/issues/" + id);
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos" + id);
   const data = await res.json();
 
   return {
@@ -28,8 +28,8 @@ const IssueDetails = ({ issue }) => {
   return ( 
     <div>
       <h1>Issue Details</h1>
-      <h3>{ issue.author }</h3>
-      <p>{ issue.body }</p>
+      <h3>{ issue.userId }</h3>
+      <p>{ issue.title }</p>
     </div>
    );
 }
