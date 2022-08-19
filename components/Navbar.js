@@ -2,12 +2,12 @@ import Link from 'next/link'
 
 const Navbar = () => {
   return (
-      <nav className="navbar">
+      <nav>
+        <div className="logo">
           <h1>The Issue Tracker</h1>
-          <div className="links">
-              <Link href="/"><a>Dashboard</a></Link>
-              <Link href="/create"><a>New Issue</a></Link>
-          </div>
+        </div>
+        <Link href="/"><a>Dashboard</a></Link>
+        <Link href="/create"><a>New Issue</a></Link>
       </nav>
   );
 }
