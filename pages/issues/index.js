@@ -2,11 +2,11 @@ import styles from '../../styles/Issues.module.css'
 import Link from 'next/link'
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
-  const data = await res.json();
+  const res = await fetch('https://issue-strapi.herokuapp.com/api/issues').then(result => result.json());
+  // const data = JSON.stringify(res);
 
   return {
-    props: { issues: data }
+    props: { issues: res.data }
   }
 }
 
@@ -18,7 +18,7 @@ const IssueList = ({ issues }) => {
         <Link href={"/issues/" + issue.id} key={issue.id}>
           <a className={styles.single}>
             <h2>{ issue.id }</h2>
-            <h3>{ issue.title }</h3>
+            <h3>{ issue.attributes.title }</h3>
           </a>
         </Link>
       ))}
