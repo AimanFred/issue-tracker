@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Issue Tracker | Dashboard</title>
+        <title>Dashboard | Issue Tracker</title>
         <meta name="keyword" content="issues" />
       </Head>
       <div>

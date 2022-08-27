@@ -4,7 +4,7 @@ const Create = () => {
   return ( 
     <>
       <Head>
-        <title>Issue Tracker | New Issue</title>
+        <title>New Issue | Issue Tracker</title>
         <meta name="keyword" content="issues" />
         </Head>
       <div className="create">

@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 export const getStaticPaths = async () => {
   const res = await fetch('https://issue-strapi.herokuapp.com/api/issues').then(result => result.json());
   // const { data } = await res.json();
@@ -17,8 +19,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   const res = await fetch('https://issue-strapi.herokuapp.com/api/issues/' + id).then(result => result.json());
-  // const data = await res.json();
-  // console.log(data)
 
   return {
     props: { issue: res.data }
@@ -27,12 +27,18 @@ export const getStaticProps = async (context) => {
 
 const IssueDetails = ({ issue }) => {
   return ( 
-    <div>
-      <h1>Issue Details</h1>
-      <h3>{ issue.attributes.title }</h3>
-      <p>{ issue.attributes.body }</p>
-    </div>
-   );
+    <>
+      <Head>
+        <title>Issue Details | Issue Tracker</title>
+        <meta name="keyword" content="issues" />
+      </Head>
+      <div>
+        <h1>Issue Details</h1>
+        <h3>{ issue.attributes.title }</h3>
+        <p>{ issue.attributes.body }</p>
+      </div>
+    </>
+  );
 }
  
 export default IssueDetails;
