@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head';
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://issue-strapi.herokuapp.com/api/issues').then(result => result.json());
+  const res = await fetch(process.env.STRAPI_URI + '/issues').then(result => result.json());
 
   return {
     props: { issues: res.data }

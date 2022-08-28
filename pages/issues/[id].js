@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 export const getStaticPaths = async () => {
-  const res = await fetch('https://issue-strapi.herokuapp.com/api/issues').then(result => result.json());
+  const res = await fetch(process.env.STRAPI_URI + '/issues').then(result => result.json());
   // const { data } = await res.json();
 
   const paths = res.data.map(issue => {
@@ -18,7 +18,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const res = await fetch('https://issue-strapi.herokuapp.com/api/issues/' + id).then(result => result.json());
+  const res = await fetch(process.env.STRAPI_URI + '/issues/' + id).then(result => result.json());
 
   return {
     props: { issue: res.data }
